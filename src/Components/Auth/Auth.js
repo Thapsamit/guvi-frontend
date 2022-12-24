@@ -4,7 +4,7 @@ import axios from 'axios';
 const initialState  = {name:"",email:"",password:"",confirmPassword:""}
 const Auth = ({setIsAuthenticated,user,setUser,isLogin,setIsLogin})=>{
 
-   
+    const[isSubmitting,setSubmitting] = useState(false);
     const[formdata,setFormData] = useState(initialState)
     const[isError,setError] =  useState("");
     const switchAuthComponent = ()=>{
@@ -16,10 +16,13 @@ const Auth = ({setIsAuthenticated,user,setUser,isLogin,setIsLogin})=>{
        
     }
     const handleSubmit = async (e)=>{
+
         e.preventDefault();
+        setSubmitting(true);
         if(!isLogin){
           if(formdata.password!==formdata.confirmPassword){
             setError("Password Doesn't Match Please Re-enter!!")
+            
          }
          else{
            
@@ -49,6 +52,7 @@ const Auth = ({setIsAuthenticated,user,setUser,isLogin,setIsLogin})=>{
         setTimeout(()=>{
           setError("")
         },3000)
+        setSubmitting(false);
         setFormData({...formdata,initialState});
     }
     return(
@@ -78,7 +82,7 @@ const Auth = ({setIsAuthenticated,user,setUser,isLogin,setIsLogin})=>{
           <div>
             <button className='authBtns'  onClick={switchAuthComponent}>{isLogin ? "Not Having Account? Please Sign UP" : "Already have an account? Login.."}</button>
           </div>
-          <button type='submit' className='btn'>Submit</button>
+          <button type='submit' className='btn'>{isSubmitting ? "Submiting....":"Submit"}</button>
         </form>
          
       </div>

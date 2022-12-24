@@ -4,6 +4,7 @@ import axios from "axios";
 import Success from "../Messages/Success";
 const Profile = ({user,setUser,setIsAuthenticated,setIsLogin})=>{
     const[isSuccess,setIsSuccess] = useState("")
+   
     let formattedDate = "";
     if(user.dob){
       formattedDate = new Date(user.dob).toISOString().split('T')[0];
@@ -14,7 +15,9 @@ const Profile = ({user,setUser,setIsAuthenticated,setIsLogin})=>{
          setUser({...user,[e.target.name]:e.target.value});
     }
     const handleSubmit = async (e)=>{
+
         e.preventDefault();
+  
         const id = user._id;
         try{
           const res = await axios.patch(`/profile/${id}`,user)
@@ -27,6 +30,7 @@ const Profile = ({user,setUser,setIsAuthenticated,setIsLogin})=>{
         catch(e){
           console.log(e)
         }
+      
         
     }
    return(
