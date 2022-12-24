@@ -1,38 +1,79 @@
-.App {
+
+.box{
+  background-color:  white;
+  padding: 10px 40px;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   text-align: center;
+  width:500px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.box .textLabel{
+  font-size: 1.5rem;
+  margin: 20px 0;
+  color: #2ecc71;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.formControls{
+  margin: 16px 0;
+  width: 100%;
+  
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.formControls input{
+  width: 100%;
+  font-family: "poppins";
+  outline: none;
+  border: 2px solid grey;
+  padding: 10px;
+  border-radius:  5px;
+}
+.formControls input:focus{
+  border: 2px solid green;
+}
+.authBtns{
+  background:none;
+  outline: none;
+  border: none;
+  font-family: "poppins";
+  cursor: pointer;
+}
+.authBtns:hover{
+  color:blue;
+}
+.msg{
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: rgba(231, 76, 60,0.7);
+  color:white;
+  padding: 10px;
+  border: 1px solid rgba(231, 76, 60,1);
+  border-radius: 5px;
+  font-size: 12px;
+}
+.btn-logout{
+  background-color:#e74c3c;
+}
+.strip{
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+}
+.greetings{
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.msgSuccess{
+  background-color: rgba(39, 174, 96,0.7);
+  border: 1px solid rgba(39, 174, 96,1.0);
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+
+/* Media Queries */
+@media (max-width:480px) {
+  
+  .box{
+  
+    width:100%;
+    margin: 0 auto;
+    padding:14px;
   }
 }
